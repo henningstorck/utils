@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { strToBool } from './booleanUtils';
+import { formatBool, strToBool } from './booleanUtils';
 
 describe('strToBool', () => {
 	it('should parse true', () => {
@@ -25,5 +25,22 @@ describe('strToBool', () => {
 	it('should be case insensitive', () => {
 		const result = strToBool('TrUe');
 		expect(result).toBe(true);
+	});
+});
+
+describe('formatBool', () => {
+	it('should format true', () => {
+		const result = formatBool(true, 'Yes', 'No');
+		expect(result).toBe('Yes');
+	});
+
+	it('should format false', () => {
+		const result = formatBool(false, 'Yes', 'No');
+		expect(result).toBe('No');
+	});
+
+	it('should format undefined', () => {
+		const result = formatBool(undefined, 'Yes', 'No');
+		expect(result).toBe('No');
 	});
 });

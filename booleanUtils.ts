@@ -5,3 +5,7 @@ export const strToBool = (value: string | undefined) => {
 
 	return value.toLowerCase() === 'true';
 };
+
+export const formatBool = (value: boolean | undefined, trueText: string, falseText: string) => {
+	return value ? trueText : falseText;
+};
